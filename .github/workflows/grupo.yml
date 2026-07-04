@@ -1,0 +1,25 @@
+name: HDD Grupo 1
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  GRUPO: "Grupo X"
+  CURSO: "Herramientas de Desarrollo"
+  DESPEDIDA: "true"
+
+jobs:
+  prueba:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prueba de mensajes
+        run: echo "Hola Grupo 1"
+
+      - name: Variables creada en el workflow
+        run: |
+          echo "Grupo: $GRUPO"
+          echo "Curso: $CURSO"
+          echo "Despedida: $DESPEDIDA"
