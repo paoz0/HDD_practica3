@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  GRUPO: "Grupo X"
+  GRUPO: "Grupo 1"
   CURSO: "Herramientas de Desarrollo"
   DESPEDIDA: "true"
 
