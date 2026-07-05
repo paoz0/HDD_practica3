@@ -18,8 +18,24 @@ jobs:
       - name: Prueba de mensajes
         run: echo "Hola Grupo 1"
 
-      - name: Variables creada en el workflow
+      - name: Variables creadas en el workflow
         run: |
           echo "Grupo: $GRUPO"
           echo "Curso: $CURSO"
           echo "Despedida: $DESPEDIDA"
+
+      - name: Variables de GitHub Actions
+        run: |
+          echo "Repositorio: $GITHUB_REPOSITORY"
+          echo "Propietario: $GITHUB_REPOSITORY_OWNER"
+          echo "SHA: $GITHUB_SHA"
+          echo "Rama: $GITHUB_REF_NAME"
+          echo "Actor: $GITHUB_ACTOR"
+
+      - name: Con Despedida
+        if: env.DESPEDIDA == 'true'
+        run: echo "Gracias por ejecutar el workflow."
+
+      - name: Sin Despedida
+        if: env.DESPEDIDA != 'true'
+        run: echo "No se mostrará despedida."
