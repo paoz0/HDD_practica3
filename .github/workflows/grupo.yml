@@ -39,3 +39,23 @@ jobs:
       - name: Sin Despedida
         if: env.DESPEDIDA != 'true'
         run: echo "No se mostrará despedida."
+      - name: Crear archivo JSON
+        run: |
+          cat <<EOF > salida.json
+          {
+            "grupo": "$GRUPO",
+            "curso": "$CURSO",
+            "repositorio": "$GITHUB_REPOSITORY",
+            "autor": "$GITHUB_ACTOR",
+            "estado": "Correcto"
+          }
+          EOF
+
+      - name: Mostrar contenido del JSON
+        run: cat salida.json
+
+      - name: Subir archivo JSON
+        uses: actions/upload-artifact@v4
+        with:
+          name: salida-json
+          path: salida.json
